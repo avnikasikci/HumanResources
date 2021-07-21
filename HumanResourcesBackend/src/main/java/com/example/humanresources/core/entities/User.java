@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -32,21 +33,25 @@ public class User {
 	@NotBlank
 	@NotNull
 	private String email;
-	
+
+	@JsonIgnore
 	@Column(name="password")
 	@NotBlank
 	@NotNull
 	@Size(min = 6)
 	private String password;
 
-	@Column(name="name")
-	@NotNull
-	@Size(min = 2, max = 15)
-	private String name;
+//	@Column(name="name")
+//	@NotNull
+//	@Size(min = 2, max = 15)
+//	private String name;
+//
+//	@Column(name="LastName")
+//	@NotNull
+//	@Size(min = 2, max = 15)
+//	private String LastName;
 
-	@Column(name="LastName")
-	@NotNull
-	@Size(min = 2, max = 15)
-	private String LastName;
+	@Column(name = "mail_is_verify")
+	private boolean mailVerify;
 
 }

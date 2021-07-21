@@ -7,17 +7,23 @@ import ProductDetail from "../pages/ProductDetail";
 import CartDetail from "../pages/CartDetail";
 import { ToastContainer } from "react-toastify";
 import ProductAdd from "../pages/ProductAdd";
+import Navi from './Navi';
+import Login from '../pages/account/Login';
+import Register from '../pages/account/Register';
 
 export default function Dashboard() {
   return (
     <div>
       <ToastContainer position="bottom-right"/>
+            <Navi/>
       <Grid>
         <Grid.Row>
           <Grid.Column width={4}>
             <Categories />
           </Grid.Column>
           <Grid.Column width={12}>
+          <Route exact path="/login" component={Login}/>
+                        <Route exact path="/register" component={Register}/>
             <Route exact path="/" component={ProductList} />
             <Route exact path="/products" component={ProductList} />
             <Route path="/products/:name" component={ProductDetail} />
